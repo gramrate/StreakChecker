@@ -1,0 +1,5 @@
+.venv
+.idea
+.env
+src/streak-checker-session.session
+src/config/consts.py

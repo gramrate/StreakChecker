@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "streakchecker"
+version = "0.1.0"
+description = ""
+authors = ["gramrate <prikinok@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-dotenv = ">=1.0.1,<1.1.0"
+telethon = ">=1.37.0,<1.38.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
