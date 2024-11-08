@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 from telethon import TelegramClient, types
-from telethon.types import Message
+from telethon.custom import Message
 from telethon.events import NewMessage
+from telethon.utils import get_peer_id
 
 import asyncio
 import logging
@@ -19,7 +20,7 @@ PHONE = config.PHONE_NUMBER
 PASSWORD = config.CLOUD_PASSWORD
 
 async def main():
-    client = TelegramClient(session_path, API_ID, API_HASH, system_version="4.16.30-vxCUSTOM")
+    client = TelegramClient(session_path    , API_ID, API_HASH, system_version="4.16.30-vxCUSTOM")
     await client.start(phone=PHONE, password=PASSWORD)
     logging.info('connected')
     print('connected')
@@ -28,10 +29,10 @@ async def main():
     async def normal_handler(event: NewMessage):
         message: Message = event.message
 
-        chat_id = message.peer_id.user_id
+        chat_id = get_peer_id(message.peer_id)
         user=None
-        if message.from_id.user_id == user_id: user = user_id
-        else: user = message.peer_id.user_id
+        if message.sender_id == user_id: user = user_id
+        else: user = chat_id
 
         # buisness logic
         streak_text = app(chat_id=chat_id, user=user)
