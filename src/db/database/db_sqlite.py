@@ -60,6 +60,6 @@ def update_streak(
         UPDATE streaks 
         SET streak = ?, streak_date = ?, last_connect = ? 
         WHERE chat_id = ?
-    ''', (streak, last_connect, last_connect, chat_id))
+    ''', (streak, streak_date, last_connect, chat_id))
 
     conn.commit()

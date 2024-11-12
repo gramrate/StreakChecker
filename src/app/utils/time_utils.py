@@ -21,6 +21,12 @@ def check_streak_time_into(time1: str, time2: str):
     s_time = substr_time(time1, time2)
     return datetime.timedelta(hours=24) <= s_time <= datetime.timedelta(hours=48)
 
+
 def check_streak_time_over(time1: str, time2: str):
     s_time = substr_time(time1, time2)
     return s_time > datetime.timedelta(hours=48)
+
+
+def check_streak_time_under(time1: str, time2: str):
+    s_time = substr_time(time1, time2)
+    return s_time < datetime.timedelta(hours=24)

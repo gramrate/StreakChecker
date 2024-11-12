@@ -17,7 +17,7 @@ def get_emoji_by_streak(streak) -> tuple[int, int]:
 
 
 def get_random_text() -> str:
-    return random.choice(text_congratulations)
+    return random.choice(text_streak_increment)
 
 
 def get_beauty_streak(streak: int) -> str:
